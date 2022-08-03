@@ -81,7 +81,7 @@ export class SuspenseSubject<T> extends Subject<T> {
     this._firstEmission = new Promise<void>((resolve) => (this._resolveFirstEmission = resolve));
   }
 
-  _subscribe(subscriber: Subscriber<T>): Subscription {
+  override _subscribe(subscriber: Subscriber<T>): Subscription {
     if (this._timeoutHandler) {
       clearTimeout(this._timeoutHandler);
     }
